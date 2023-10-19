@@ -1,0 +1,90 @@
+@import '@fontsource-variable/oswald';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	table {
+		@apply w-full whitespace-nowrap rounded-lg overflow-hidden;
+	}
+
+	thead,
+	tfoot {
+		@apply bg-slate-800 text-slate-100;
+	}
+
+	thead {
+		@apply rounded-t-lg;
+		tr {
+			@apply rounded-t-lg;
+		}
+		th {
+			@apply first:rounded-tl-lg last:rounded-tr-lg;
+		}
+	}
+
+	tfoot {
+		@apply rounded-b-lg;
+		tr {
+			@apply rounded-b-lg;
+		}
+		td {
+			@apply first:rounded-bl-lg last:rounded-br-lg;
+		}
+	}
+
+	tr {
+		@apply border-b-2 border-slate-200 even:bg-slate-50 last:border-b-0;
+	}
+
+	th {
+		@apply text-left font-semibold;
+	}
+
+	th,
+	td {
+		@apply px-4 py-2;
+	}
+
+	input {
+		@apply border-2 border-slate-200 rounded-md invalid:border-red-500 focus:outline-none focus:border-purple-500 disabled:bg-slate-100 disabled:text-slate-700 disabled:cursor-not-allowed;
+	}
+
+	textarea {
+		@apply border-2 border-slate-200 rounded-md invalid:border-red-500 focus:outline-none focus:border-purple-500 disabled:bg-slate-100 disabled:text-slate-700 disabled:cursor-not-allowed;
+	}
+
+	select {
+		@apply border-2 border-slate-200 rounded-md invalid:border-red-500 focus:outline-none focus:border-purple-500 disabled:bg-slate-100 disabled:text-slate-700 disabled:cursor-not-allowed;
+	}
+
+	textarea,
+	input[type='text'],
+	input[type='password'],
+	input[type='email'],
+	input[type='number'],
+	input[type='search'],
+	input[type='tel'],
+	input[type='url'],
+	input[type='date'],
+	input[type='datetime-local'],
+	input[type='month'],
+	input[type='week'],
+	input[type='time'],
+	input[type='color'],
+	select[multiple],
+	select[size] {
+		@apply block w-full;
+	}
+
+	button,
+	[type='button'],
+	[type='reset'],
+	[type='submit'] {
+		@apply inline-flex items-center justify-center px-4 py-2 border border-purple-600 rounded-md shadow-sm text-base font-medium text-purple-600  hover:text-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors bg-white hover:bg-purple-200;
+		&.primary {
+			@apply text-white bg-purple-600 hover:bg-purple-700 focus:ring-purple-500;
+		}
+	}
+}
