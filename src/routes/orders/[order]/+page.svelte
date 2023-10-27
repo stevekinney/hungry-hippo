@@ -59,7 +59,7 @@
 	<OrderStep step={6} status={data.order.status} />
 </div>
 
-<footer class="flex items-center justify-between mt-6 text-right">
+<footer class="flex items-start justify-between mt-6 text-right">
 	<a href="/orders">&larr; Back to Orders</a>
 	{#if data.order.status < 6}
 		<form action="/orders/{data.order.id}" method="post" class="flex justify-end" use:enhance>

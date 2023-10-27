@@ -10,23 +10,23 @@
 	}
 
 	h1 {
-		@apply text-4xl font-extrabold text-slate-900;
+		@apply text-lg sm:text-4xl font-extrabold text-slate-900;
 	}
 
 	h2 {
-		@apply text-3xl font-extrabold text-slate-900;
+		@apply text-base sm:text-xl md:text-3xl font-extrabold text-slate-900;
 	}
 
 	h3 {
-		@apply text-2xl font-bold text-slate-900;
+		@apply text-base sm:text-2xl font-bold text-slate-900;
 	}
 
 	h4 {
-		@apply text-xl font-bold text-slate-900;
+		@apply text-base sm:text-xl font-bold text-slate-900;
 	}
 
 	h5 {
-		@apply text-lg font-bold text-slate-900;
+		@apply text-base sm:text-lg font-bold text-slate-900;
 	}
 
 	h6 {

@@ -16,7 +16,7 @@
 	</p>
 {/if}
 
-<table id="menu" class="w-full table-fixed">
+<table id="menu" class="w-full md:table-fixed">
 	<thead>
 		<tr>
 			<th>ID</th>
