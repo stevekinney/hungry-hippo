@@ -5,10 +5,12 @@ import { generateId } from './utilities/id';
 
 import type OrderStatus from './utilities/status';
 
+// We *could* query Temporal all of the workflows that have to do with orders.
 export const getOrder = (id: string) => {
 	return db.getOrder(id);
 };
 
+// We *could* query Temporal for a given workflow for an order.
 export const getOrders = () => {
 	return db.getOrders();
 };
