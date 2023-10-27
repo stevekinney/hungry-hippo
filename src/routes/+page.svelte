@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { enhance } from '$app/forms';
+	import { goto } from '$app/navigation';
 	import { items } from '$lib/utilities/items';
 
 	$: total = items.reduce((total, item) => total + item.quantity * item.price, 0);
@@ -8,7 +10,15 @@
 	<title>Hungry Hippo</title>
 </svelte:head>
 
-<form method="POST" action="/orders" class="flex flex-col gap-4 mx-auto">
+<form
+	method="POST"
+	action="/orders"
+	class="flex flex-col gap-4 mx-auto"
+	use:enhance={({ action }) => {
+		items.forEach((item) => (item.quantity = 0));
+		return goto(action.pathname);
+	}}
+>
 	<table id="menu" class="w-full">
 		<thead>
 			<tr>
