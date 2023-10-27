@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { items } from '../items';
+	import { items } from '../utilities/items';
 
 	$: total = items.reduce((total, item) => total + item.quantity * item.price, 0);
 </script>
 
-<form on:submit|preventDefault class="mx-auto flex flex-col gap-4">
+<form on:submit|preventDefault class="flex flex-col gap-4 mx-auto">
 	<table id="menu" class="w-full">
 		<thead>
 			<tr>
@@ -33,7 +33,7 @@
 			</td>
 		</tfoot>
 	</table>
-	<div class="flex gap-4 justify-end">
+	<div class="flex justify-end gap-4">
 		<button class="primary" disabled={!total}>Submit Order</button>
 	</div>
 </form>
