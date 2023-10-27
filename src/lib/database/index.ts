@@ -1,28 +1,27 @@
+import { generateId } from '$lib/utilities/id';
 import { sleep } from '$lib/utilities/sleep';
 import type OrderStatus from '$lib/utilities/status';
 import prisma from './prisma';
 
 export const getOrders = async () => {
 	await sleep();
-	return prisma.order.findMany({
-		orderBy: { id: 'desc' }
-	});
+	return prisma.order.findMany();
 };
 
-export const getOrder = async (id: number | string) => {
+export const getOrder = async (id: string) => {
 	await sleep();
+	console.log({ id });
 	return prisma.order.findFirstOrThrow({
-		where: { id: Number(id) },
+		where: { id },
 		include: { items: true }
 	});
 };
 
-export const createOrder = async (items: Omit<Item, 'id'>[], workflow: string | null = null) => {
-	console.log({ workflow, items });
+export const createOrder = async (items: Omit<Item, 'id'>[], id = generateId()) => {
 	await sleep();
 	return prisma.order.create({
 		data: {
-			workflow,
+			id,
 			items: {
 				create: items
 			}
@@ -33,10 +32,10 @@ export const createOrder = async (items: Omit<Item, 'id'>[], workflow: string | 
 	});
 };
 
-export const updateOrderStatus = async (id: number | string, status: OrderStatus) => {
+export const updateOrderStatus = async (id: string, status: OrderStatus) => {
 	await sleep();
 	return prisma.order.update({
-		where: { id: Number(id) },
+		where: { id },
 		data: { status }
 	});
 };

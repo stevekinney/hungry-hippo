@@ -10,11 +10,11 @@
 </script>
 
 <svelte:head>
-	<title>Hungry Hippo — Order</title>
+	<title>Hungry Hippo — Order: {data.order.id}</title>
 </svelte:head>
 
 <header class="flex items-center place-content-between">
-	<h2>Order {data.order.id}</h2>
+	<h2>{data.order.id}</h2>
 	<Status status={data.order.status} />
 </header>
 
@@ -63,8 +63,6 @@
 	<a href="/orders">&larr; Back to Orders</a>
 	{#if data.order.status < 6}
 		<form action="/orders/{data.order.id}" method="post" class="flex justify-end" use:enhance>
-			<label for="workflow" class="sr-only">Workflow ID</label>
-			<input id="workflow-id" type="hidden" name="workflow" value={data.order.workflow} />
 			<label for="next-status" class="sr-only">Next Status</label>
 			<input id="next-status" type="hidden" name="status" value={data.order.status + 1} />
 			<button type="submit" class="primary">
