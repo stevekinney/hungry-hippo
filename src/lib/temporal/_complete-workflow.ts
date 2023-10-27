@@ -25,7 +25,7 @@ export async function kickOffFoodOrderWorkflow(items: Omit<Item, 'id'>[], id: st
 
 	let status: OrderStatus = order.status;
 	let confirmed = false;
-	let paymentVeried = false;
+	let paymentVerified = false;
 
 	// We can use signals to communicate with the workflow.
 	setHandler(resturantConfirmation, () => {
@@ -46,10 +46,10 @@ export async function kickOffFoodOrderWorkflow(items: Omit<Item, 'id'>[], id: st
 
 	await processPayment(id);
 
-	paymentVeried = true;
+	paymentVerified = true;
 
 	// Pause and wait for this expression to be truthy.
-	await condition(() => paymentVeried);
+	await condition(() => paymentVerified);
 
 	status = await updateOrder(id, OrderStatus.WaitingForRestaurantConfirmation);
 
@@ -65,7 +65,7 @@ export async function kickOffFoodOrderWorkflow(items: Omit<Item, 'id'>[], id: st
 	status = await updateOrder(id, OrderStatus.EnRoute);
 	status = await updateOrder(id, OrderStatus.Delivered);
 
-	// Think abouot all of the code you're *not* writing.
+	// Think about all of the code you're *not* writing.
 	await sleep('1 day');
 
 	await sendFollowUp();
