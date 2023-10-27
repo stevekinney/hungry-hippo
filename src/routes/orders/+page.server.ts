@@ -1,7 +1,7 @@
 import type { PageServerLoad, Actions } from './$types';
 
-import { createOrder, getOrders } from '$lib/database';
-import { toOrder } from '$lib/items';
+import { createOrder, getOrders } from '$lib';
+import { toOrder } from '$lib/utilities/items';
 
 export const load: PageServerLoad = async () => {
 	const orders = getOrders();

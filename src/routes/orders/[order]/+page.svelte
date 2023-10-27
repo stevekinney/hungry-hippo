@@ -4,7 +4,7 @@
 
 	import OrderStep from '$lib/components/order-step.svelte';
 	import Status from '$lib/components/status.svelte';
-	import { formatStatus } from '$lib/status';
+	import { formatStatus } from '$lib/utilities/status';
 
 	export let data: PageData;
 </script>

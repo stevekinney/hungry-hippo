@@ -1,6 +1,6 @@
 type Order = {
 	id: number;
-	status: import('./lib/status').OrderStatus;
+	status: import('./lib/utilities/status').OrderStatus;
 	items: Item[];
 };
 

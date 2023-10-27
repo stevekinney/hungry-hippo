@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { items } from '$lib/items';
+	import { items } from '$lib/utilities/items';
 
 	$: total = items.reduce((total, item) => total + item.quantity * item.price, 0);
 </script>

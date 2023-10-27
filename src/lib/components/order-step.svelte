@@ -1,5 +1,5 @@
 <script lang="ts">
-	import OrderStatus, { formatStatus } from '$lib/status';
+	import OrderStatus, { formatStatus } from '$lib/utilities/status';
 
 	export let step: OrderStatus;
 	export let status: OrderStatus;

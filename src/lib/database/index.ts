@@ -1,5 +1,5 @@
-import { sleep } from '$lib/sleep';
-import type OrderStatus from '$lib/status';
+import { sleep } from '$lib/utilities/sleep';
+import type OrderStatus from '$lib/utilities/status';
 import prisma from './prisma';
 
 export const getOrders = async () => {
