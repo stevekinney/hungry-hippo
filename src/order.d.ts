@@ -1,11 +1,8 @@
-type OrderStatus = 'Pending' | 'Confirmed' | 'Ready for Pickup' | 'En Route' | 'Delivered';
-
 type Order = {
 	id: number;
-	items: OrderItem[];
+	status: import('./lib/status').OrderStatus;
+	items: Item[];
 };
-
-type OrderItem = Item & { status: OrderStatus };
 
 type Item = {
 	id: number;

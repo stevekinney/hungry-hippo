@@ -1,10 +1,5 @@
 <script lang="ts">
-	import { items } from '../lib/items';
-
-	const handleSubmit = (event: SubmitEvent) => {
-		const order = items.filter((item) => item.quantity > 0);
-		console.log({ order, total });
-	};
+	import { items } from '$lib/items';
 
 	$: total = items.reduce((total, item) => total + item.quantity * item.price, 0);
 </script>
@@ -13,7 +8,7 @@
 	<title>Hungry Hippo</title>
 </svelte:head>
 
-<form on:submit|preventDefault={handleSubmit} class="mx-auto flex flex-col gap-4">
+<form method="POST" action="/orders" class="flex flex-col gap-4 mx-auto">
 	<table id="menu" class="w-full">
 		<thead>
 			<tr>
@@ -35,6 +30,7 @@
 							type="number"
 							min="0"
 							max="100"
+							name={String(item.id)}
 							bind:value={item.quantity}
 						/>
 					</td>
@@ -48,7 +44,10 @@
 			</td>
 		</tfoot>
 	</table>
-	<div class="flex gap-4 justify-end">
+	<div class="flex items-center justify-between gap-4">
+		<footer>
+			<a href="/orders">View Orders</a>
+		</footer>
 		<button class="primary" disabled={!total}>Submit Order</button>
 	</div>
 </form>

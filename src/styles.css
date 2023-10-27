@@ -5,8 +5,40 @@
 @tailwind utilities;
 
 @layer base {
+	header {
+		@apply mb-6;
+	}
+
+	h1 {
+		@apply text-4xl font-extrabold text-slate-900;
+	}
+
+	h2 {
+		@apply text-3xl font-extrabold text-slate-900;
+	}
+
+	h3 {
+		@apply text-2xl font-bold text-slate-900;
+	}
+
+	h4 {
+		@apply text-xl font-bold text-slate-900;
+	}
+
+	h5 {
+		@apply text-lg font-bold text-slate-900;
+	}
+
+	h6 {
+		@apply text-base font-bold text-slate-900;
+	}
+
+	a {
+		@apply underline underline-offset-2 decoration-purple-400 hover:decoration-purple-300;
+	}
+
 	table {
-		@apply w-full whitespace-nowrap rounded-lg overflow-hidden;
+		@apply w-full whitespace-nowrap rounded-lg overflow-hidden shadow-lg md:text-base text-sm;
 	}
 
 	thead,
@@ -82,7 +114,7 @@
 	[type='button'],
 	[type='reset'],
 	[type='submit'] {
-		@apply inline-flex items-center justify-center px-4 py-2 border border-purple-600 rounded-md shadow-sm text-base font-medium text-purple-600  hover:text-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors bg-white hover:bg-purple-200;
+		@apply inline-flex items-center justify-center px-4 py-2 border border-purple-600 rounded-md shadow-md text-base font-medium text-purple-600  hover:text-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors bg-white hover:bg-purple-200;
 		&.primary {
 			@apply text-white bg-purple-600 hover:bg-purple-700 focus:ring-purple-500;
 		}
