@@ -34,8 +34,9 @@ export const createOrder = async (items: Omit<Item, 'id'>[], id: string = genera
 
 export const updateOrderStatus = async (id: string, status: OrderStatus) => {
 	await sleep();
-	return prisma.order.update({
+	await prisma.order.update({
 		where: { id },
 		data: { status }
 	});
+	return status;
 };

@@ -13,7 +13,7 @@ export const processPayment = async (id: string) => {
 	await axios.post('http://localhost:3333/charge');
 };
 
-export const updateOrder = (id: string, status: OrderStatus) => {
+export const updateOrder = async (id: string, status: OrderStatus) => {
 	return updateOrderStatus(id, status);
 };
 
