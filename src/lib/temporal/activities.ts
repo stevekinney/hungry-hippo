@@ -13,10 +13,10 @@ export const processPayment = async (id: string) => {
 	await axios.post('http://localhost:3333/charge');
 };
 
-export const sendFollowUp = async () => {
-	Context.current().log.info('💸 Payment processed');
-};
-
 export const updateOrder = (id: string, status: OrderStatus) => {
 	return updateOrderStatus(id, status);
+};
+
+export const sendFollowUp = async () => {
+	Context.current().log.info('💸 Payment processed');
 };
