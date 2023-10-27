@@ -65,7 +65,7 @@ export async function kickOffFoodOrderWorkflow(items: Omit<Item, 'id'>[], id: st
 	status = await updateOrder(id, OrderStatus.EnRoute);
 	status = await updateOrder(id, OrderStatus.Delivered);
 
-	// Think abouot all of the code you're *not* writing.
+	// Think about all of the code you're *not* writing.
 	await sleep('1 day');
 
 	await sendFollowUp();
