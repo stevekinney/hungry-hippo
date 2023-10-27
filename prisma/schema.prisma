@@ -11,9 +11,10 @@ datasource db {
 }
 
 model Order {
-  id     Int    @id @default(autoincrement())
-  items  Item[]
-  status Int    @default(0)
+  id       Int     @id @default(autoincrement())
+  items    Item[]
+  status   Int     @default(0)
+  workflow String?
 }
 
 model Item {

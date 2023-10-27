@@ -11,7 +11,9 @@
 		"test": "vitest",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
-		"database": "prisma migrate reset dev"
+		"database": "prisma migrate reset dev",
+		"worker": "esno --tsconfig ./tsconfig.node.json ./src/lib/temporal/worker.ts",
+		"payments": "esno --tsconfig ./tsconfig.node.json payment-server"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^2.0.0",
@@ -22,6 +24,7 @@
 		"@typescript-eslint/eslint-plugin": "^6.0.0",
 		"@typescript-eslint/parser": "^6.0.0",
 		"autoprefixer": "^10.4.16",
+		"dotenv": "^16.3.1",
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte": "^2.30.0",

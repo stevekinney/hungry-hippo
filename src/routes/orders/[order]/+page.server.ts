@@ -11,7 +11,9 @@ export const actions = {
 	default: async ({ params, request }) => {
 		const form = await request.formData();
 		const status = Number(form.get('status'));
-		const order = await updateOrderStatus(+params.order, status);
+		const workflow = String(form.get('workflow'));
+		const id = +params.order;
+		const order = await updateOrderStatus(workflow || id, status);
 
 		return order;
 	}

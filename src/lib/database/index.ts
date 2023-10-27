@@ -17,10 +17,12 @@ export const getOrder = async (id: number | string) => {
 	});
 };
 
-export const createOrder = async (items: Omit<Item, 'id'>[]) => {
+export const createOrder = async (items: Omit<Item, 'id'>[], workflow: string | null = null) => {
+	console.log({ workflow, items });
 	await sleep();
 	return prisma.order.create({
 		data: {
+			workflow,
 			items: {
 				create: items
 			}

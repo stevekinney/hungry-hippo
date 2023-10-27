@@ -12,7 +12,7 @@
 
 {#if form?.order}
 	<p class="p-4 mb-6 text-green-800 bg-green-100 border-2 border-green-400 rounded-md">
-		Order successfully submitted: {form.order.id}
+		<span class="font-semibold">Submitted</span>: {form.order.id}
 	</p>
 {/if}
 
