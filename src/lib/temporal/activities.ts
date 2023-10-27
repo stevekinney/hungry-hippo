@@ -10,7 +10,7 @@ export const createOrder = (items: Omit<Item, 'id'>[], id: string) => {
 
 export const processPayment = async (id: string) => {
 	Context.current().log.info(`💸 Processing payment: ${id}`);
-	await axios.post('http://localhost:3333/charge');
+	await axios.post(`http://localhost:3333/charge/${id}`);
 };
 
 export const updateOrder = async (id: string, status: OrderStatus) => {

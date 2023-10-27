@@ -17,7 +17,7 @@ export const createOrder = (items: Omit<Item, 'id'>[]) => {
 export const updateOrderStatus = async (id: string, status: OrderStatus) => {
 	if (status === OrderStatus.ProcessingPayment) {
 		// This is going to go poorly if the payment processor is down.
-		await axios.post('http://localhost:3333/charge');
+		await axios.post(`http://localhost:3333/charge/${id}`);
 	}
 
 	return db.updateOrderStatus(id, status);

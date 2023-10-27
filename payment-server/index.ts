@@ -12,6 +12,11 @@ app.post('/charge', (_req: Request, res: Response) => {
 	res.sendStatus(204);
 });
 
+app.post('/charge/:id', (req: Request, res: Response) => {
+	console.log('💸 Payment processed…', req.params.id);
+	res.sendStatus(204);
+});
+
 app.listen(port, () => {
 	console.log(`Payment Processing Server running at http://localhost:${port}`);
 });
