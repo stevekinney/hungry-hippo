@@ -1,5 +1,6 @@
+import axios from 'axios';
 import * as db from './database';
-import type OrderStatus from './utilities/status';
+import OrderStatus from './utilities/status';
 
 export const getOrder = (id: string) => {
 	return db.getOrder(id);
@@ -13,6 +14,11 @@ export const createOrder = (items: Omit<Item, 'id'>[]) => {
 	return db.createOrder(items);
 };
 
-export const updateOrderStatus = (id: string, status: OrderStatus) => {
+export const updateOrderStatus = async (id: string, status: OrderStatus) => {
+	if (status === OrderStatus.ProcessingPayment) {
+		// This is going to go poorly if the payment processor is down.
+		await axios.post('http://localhost:3333/charge');
+	}
+
 	return db.updateOrderStatus(id, status);
 };
