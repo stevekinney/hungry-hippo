@@ -29,6 +29,12 @@
 				<td><a href="/orders/{id}">Order {id}</a></td>
 				<td><Status {status} /></td>
 			</tr>
+		{:else}
+			<tr>
+				<td colspan="2">
+					<p class="py-10 text-xl text-center text-gray-500">No orders found.</p>
+				</td>
+			</tr>
 		{/each}
 	</tbody>
 </table>
