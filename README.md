@@ -36,3 +36,11 @@ npm run payments
 ## Completed Example
 
 The completed example can be found in `src/lib/temporal/_complete-workflow.ts`.
+
+## The Game Plan
+
+- We're going to create a workflow that creates an order.
+- We'll wait until we hear back from the payment processing server.
+- Then we'll wait on a signal from the restaurant that they've good to make the order.
+- Then we'll rush through the remaining steps.
+- Finally, we'll wait a day and then we'll send them a follow-up email.
