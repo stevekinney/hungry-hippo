@@ -10,7 +10,6 @@ export const getOrders = async () => {
 
 export const getOrder = async (id: string) => {
 	await sleep();
-	console.log({ id });
 	return prisma.order.findFirstOrThrow({
 		where: { id },
 		include: { items: true }

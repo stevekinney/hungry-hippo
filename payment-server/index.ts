@@ -8,6 +8,7 @@ app.use(express.json());
 app.use(cors());
 
 app.post('/charge', (_req: Request, res: Response) => {
+	console.log('💸 Payment processed…');
 	res.sendStatus(204);
 });
 
