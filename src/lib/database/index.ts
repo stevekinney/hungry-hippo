@@ -17,7 +17,7 @@ export const getOrder = async (id: string) => {
 	});
 };
 
-export const createOrder = async (items: Omit<Item, 'id'>[], id = generateId()) => {
+export const createOrder = async (items: Omit<Item, 'id'>[], id: string = generateId()) => {
 	await sleep();
 	return prisma.order.create({
 		data: {
