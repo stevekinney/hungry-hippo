@@ -1,9 +1,5 @@
-import { defineSignal } from '@temporalio/workflow';
 import type OrderStatus from '$lib/utilities/status';
-
-// import type * as activities from './activities';
-
-export const resturantConfirmation = defineSignal('confirm');
+import { defineSignal } from '@temporalio/workflow';
 
 export const updateStatus = defineSignal<[OrderStatus]>('updateStatus');
 
